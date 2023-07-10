@@ -9,5 +9,41 @@
         android:id="@+id/homeFragment"
         android:name="com.venicio.gitfinder.view.ui.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailsUserFragment"
+            app:destination="@id/detailsUserFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_singleUserFragment"
+            app:destination="@id/singleUserFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailsUserFragment"
+        android:name="com.venicio.gitfinder.view.ui.fragments.DetailsUserFragment"
+        android:label="fragment_details_user"
+        tools:layout="@layout/fragment_details_user" >
+        <argument
+            android:name="user"
+            app:argType="com.venicio.gitfinder.data.model.User" />
+        <action
+            android:id="@+id/action_detailsUserFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/singleUserFragment"
+        android:name="com.venicio.gitfinder.view.ui.fragments.SingleUserFragment"
+        android:label="fragment_single_user"
+        tools:layout="@layout/fragment_single_user" >
+        <action
+            android:id="@+id/action_singleUserFragment_to_detailsUserFragment"
+            app:destination="@id/detailsUserFragment" />
+        <argument
+            android:name="user"
+            app:argType="com.venicio.gitfinder.data.model.User" />
+        <action
+            android:id="@+id/action_singleUserFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>

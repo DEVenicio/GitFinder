@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.ui.fragments.DetailsUserFragment">
+
+    <ProgressBar
+        android:id="@+id/details_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:visibility="visible"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/infos_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/title_repo">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_img_user"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="8dp"
+            app:cardCornerRadius="60dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/iv_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_launcher_background"
+                android:scaleType="fitXY" />
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tv_user_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            tools:text="DEVenicio"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@id/cv_img_user"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_user_followers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_login"
+            app:layout_constraintStart_toEndOf="@id/cv_img_user"
+            android:text="Followers:"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tv_user_followers_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_login"
+            app:layout_constraintStart_toEndOf="@id/tv_user_followers"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tv_user_following"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_followers"
+            app:layout_constraintStart_toEndOf="@id/cv_img_user"
+            android:text="Following:"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tv_user_following_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_followers"
+            app:layout_constraintStart_toEndOf="@id/tv_user_followers"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tv_user_public_repo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_following"
+            app:layout_constraintStart_toEndOf="@id/cv_img_user"
+            android:text="Public Repositories:"
+            android:layout_marginStart="8dp" />
+
+        <TextView
+            android:id="@+id/tv_user_public_repo_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            app:layout_constraintTop_toBottomOf="@id/tv_user_following"
+            app:layout_constraintStart_toEndOf="@id/tv_user_public_repo"
+            android:layout_marginStart="8dp" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/title_repo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repositories"
+        android:layout_margin="16dp"
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_repos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_repo"
+        android:layout_marginHorizontal="4dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginVertical="4dp"
+        android:background="@drawable/repos_bg"/>
+
+
+</LinearLayout>
